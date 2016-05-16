@@ -62,7 +62,8 @@ class Relationship(Mapping, db.Model):
 
   @property
   def destination(self):
-    return getattr(self, self.destination_attr)
+     if hasattr(self, self.destination_attr):	
+       return getattr(self, self.destination_attr)
 
   @destination.setter
   def destination(self, value):
